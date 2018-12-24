@@ -1,0 +1,28 @@
+#DayStatsModal>div.modal-dialog {
+  width: 70%;
+  margin: 60px auto;
+}
+
+.DayStatsModal {
+  background-color: #f1f1f1;
+}
+
+.DayStatsModal>div.reportsButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #FF8300;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 16px;
+  border: 2px solid #FF8300;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+}
+
+.DayStatsModal>div.reportsButton:hover {
+  box-shadow: 0 2px 0 1px #FF8300;
+}

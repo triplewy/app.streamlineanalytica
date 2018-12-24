@@ -1,0 +1,22 @@
+.Reports {
+  padding: 0 10%;
+  margin-bottom: 80px;
+}
+
+.Reports ul.reportsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.reportsDate {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 30px 0;
+}
+
+.Reports div.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}

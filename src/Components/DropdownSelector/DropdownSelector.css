@@ -1,0 +1,23 @@
+.DropdownSelector {
+  display: flex;
+  margin-right: 30px;
+}
+
+.DropdownSelector>* {
+  margin: auto 0;
+}
+
+.DropdownSelector>p.dropdownLabel {
+  color: black;
+  font-size: 14px;
+  font-weight: 300;
+  margin-right: 10px;
+}
+
+.DropdownSelector li {
+  padding: 10px 20px;
+}
+
+.selected {
+  color: #FF8300;
+}

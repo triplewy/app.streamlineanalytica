@@ -1,0 +1,14 @@
+.TotalStats {
+  display: flex;
+  font-size: 24px;
+}
+
+.TotalStats>p:first-child {
+  color: gray;
+  margin-right: 10px;
+}
+
+.TotalStats>p:last-child {
+  color: #FF8300;
+  font-weight: bold;
+}

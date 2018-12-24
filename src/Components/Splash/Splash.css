@@ -1,0 +1,13 @@
+.Splash {
+  display: flex;
+  padding: 0 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+.Splash .jumbotron {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

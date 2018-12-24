@@ -1,0 +1,58 @@
+.ReportItem {
+  background-color: white;
+  padding: 20px 30px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.ReportItem img {
+  width: 70px;
+  height: 70px;
+}
+
+.ReportItem>div {
+  display: flex;
+}
+
+.ReportItem>div.descriptionWrapper {
+  display: flex;
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+}
+
+.ReportItem>div>div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.ReportItem>div>div:first-child>div {
+  margin-right: auto;
+}
+
+.ReportItem>div>div:last-child>div {
+  margin-left: auto;
+}
+
+.ReportItem p.line {
+  font-size: 21px;
+  margin-bottom: 5px;
+}
+
+.ReportItem p.lineLeader {
+  font-size: 16px;
+  color: gray;
+}
+
+.ReportItem p.date {
+  margin-bottom: 5px;
+}
+
+.ReportItem p.downtime {
+  text-align: right;
+  font-size: 21px;
+  font-weight: bold;
+  color: #FF8300;
+}

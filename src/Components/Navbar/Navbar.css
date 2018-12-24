@@ -1,0 +1,44 @@
+.Navbar {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  padding: 0 8%;
+  background-color: #FF8300;
+}
+
+.Navbar img {
+  cursor: pointer;
+  margin: auto 0;
+  height: 60px;
+  width: 60px;
+  border: 2px solid white;
+  border-radius: 12px;
+  box-shadow: 0 2px 0 2px white;
+  transition: box-shadow 0.5s;
+  -webkit-transition: box-shadow 0.5s;
+}
+
+.Navbar img:hover {
+  box-shadow: 0 4px 0 4px white;
+}
+
+.Navbar div {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 1px 0 1px white;
+  border: 1px solid white;
+  border-radius: 6px;
+  width: 80px;
+  height: 30px;
+  transition: box-shadow 0.5s;
+}
+
+.Navbar div:hover {
+  box-shadow: 0 3px 0 2px white;
+}

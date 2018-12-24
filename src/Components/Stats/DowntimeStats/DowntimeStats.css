@@ -1,0 +1,118 @@
+.DowntimeStats {
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px 20px;
+  margin-bottom: 40px;
+}
+
+.DowntimeStats>div.header {
+  display: flex;
+}
+
+.DowntimeStats>div.header>p:first-child {
+  font-size: 24px;
+  color: gray;
+}
+
+.DowntimeStats>div.header>p:last-child {
+  margin-left: auto;
+  margin-top: auto;
+  font-size: 24px;
+  color: #99DDD6;
+}
+
+.DowntimeStats ul {
+  position: relative;
+  display: flex;
+  overflow: scroll;
+}
+
+.DowntimeStats ul.ShiftStats {
+  flex-direction: column;
+}
+
+.DowntimeStats li {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.DowntimeStats li.horizontalBar {
+  flex-direction: row;
+  height: 60px;
+  margin: 0;
+}
+
+.DowntimeStats li>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; */
+  background-color: #FF8300;
+  border-radius: 4px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.DowntimeStats li.downtimeItem>div {
+  cursor: pointer;
+}
+
+.DowntimeStats li.downtimeItem>div:hover {
+  background-color: #FFA500;
+}
+
+.DowntimeStats li.horizontalBar>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.DowntimeStats li>div>p {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.DowntimeStats li.horizontalBar>p {
+  text-align: left;
+  width: 80px;
+}
+
+.DowntimeStats li>p {
+  text-align: center;
+}
+
+.DowntimeStats li>p.downtime {
+  z-index: 2;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.DowntimeStats li.horizontalBar>p.downtime {
+  margin: auto 0;
+  margin-right: auto;
+  margin-left: 10px;
+}
+
+.DowntimeStats li>p.dateLabel {
+  font-size: 12px;
+  margin-top: 10px;
+  height: 20px;
+  width: 60px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.averageLine {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 4px;
+  background-color: #99DDD6;
+}

@@ -1,0 +1,59 @@
+.DateSelector {
+  display: flex;
+  margin-right: 30px;
+}
+
+.DateSelector img {
+  cursor: pointer;
+  margin: auto 0;
+  height: 35px;
+  width: 35px;
+}
+
+.DateSelector>div {
+  display: flex;
+}
+
+.DateSelector>div.calendarButton {
+  margin: auto 0;
+  margin-right: 10px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #FF8300;
+  transition: box-shadow 0.5s;
+}
+
+.DateSelector>div.calendarButton:hover {
+  box-shadow: 0 1px 0 2px #FF8300;
+}
+
+.DateSelector>p {
+  margin: auto 0;
+  color: #FF8300;
+  font-weight: bold;
+}
+
+.DateSelector>p.dropdownLabel {
+  color: black;
+  font-size: 14px;
+  font-weight: 300;
+  margin-right: 10px;
+}
+
+.calendarModal>div {
+  margin: 100px auto;
+  background-color: transparent;
+}
+
+.calendarModal>div>div {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.react-calendar {
+  border-radius: 16px;
+  width: 100%;
+  overflow: hidden;
+}

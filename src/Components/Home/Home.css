@@ -1,0 +1,6 @@
+.Home {
+  display: flex;
+  padding: 0 5%;
+  justify-content: center;
+  align-items: center;
+}
