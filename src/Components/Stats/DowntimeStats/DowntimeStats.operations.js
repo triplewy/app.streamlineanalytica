@@ -1,19 +1,14 @@
 import { getStats, getStatsSuccess, getStatsFailure } from './DowntimeStats.actions'
+import API from '../../../api'
 
-const url = process.env.REACT_APP_API_URL
+const api = new API()
 
 export function fetchDowntimeStats(lineId, timePeriod) {
   return (dispatch) => {
     dispatch(getStats())
-    return fetch(url + '/api/stats/downtime/time/' + timePeriod + '/line/' + lineId, {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    })
+    return api.statsLine(lineId, timePeriod)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       var downtime = []
       var average = 0
       for (var i = 0; i < data.length; i++) {

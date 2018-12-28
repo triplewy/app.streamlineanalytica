@@ -1,19 +1,14 @@
 import { sessionLogin, sessionLoginSuccess, sessionLoginFailure } from './App.actions'
+import API from '../api'
 
-const url = process.env.REACT_APP_API_URL
+const api = new API()
 
 export function fetchSessionLogin() {
   return (dispatch) => {
     dispatch(sessionLogin())
-    return fetch(url + '/api/sessionLogin', {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    })
+    return api.sessionLogin()
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       if (data.message === 'not logged in') {
         dispatch(sessionLoginFailure(data.message))
       } else {

@@ -4,31 +4,14 @@ import {
   setLineIndex, setMachineIndex
 } from './Reports.actions'
 
-const url = process.env.REACT_APP_API_URL
+import API from '../../api'
+
+const api = new API()
 
 export function fetchReports(lineId, machine, date) {
   return (dispatch) => {
     dispatch(getReports)
-    var api_url = url
-
-    if (machine.machineId) {
-      api_url += '/api/reports/machine=' + machine.machineId
-    } else {
-      api_url += '/api/reports/line/' + lineId
-    }
-
-    if (date) {
-      api_url += '/date=' + date.toISOString()
-    }
-
-    api_url += '/page=0'
-
-    return fetch(api_url, {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    })
+    return api.reports(lineId, machine, date ? date.toISOString() : '', 0)
     .then(res => res.json())
     .then(data => {
       dispatch(getReportsSuccess(data))
@@ -42,27 +25,7 @@ export function fetchReports(lineId, machine, date) {
 export function fetchUpdateReports(lineId, machine, date, page) {
   return (dispatch) => {
     dispatch(updateReports)
-
-    var api_url = url
-
-    if (machine.machineId) {
-      api_url += '/api/reports/machine=' + machine.machineId
-    } else {
-      api_url += '/api/reports/line/' + lineId
-    }
-
-    if (date) {
-      api_url += '/date=' + date.toISOString()
-    }
-
-    api_url += '/page=' + page
-
-    return fetch(api_url, {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    })
+    return api.reports(lineId, machine, date ? date.toISOString() : '', page)
     .then(res => res.json())
     .then(data => {
       dispatch(updateReportsSuccess(data))

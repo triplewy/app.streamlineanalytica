@@ -1,20 +1,14 @@
 import { getStats, getStatsSuccess, getStatsFailure } from './WorkerStats.actions'
+import API from '../../../api'
 
-const url = process.env.REACT_APP_API_URL
+const api = new API()
 
 export function fetchWorkerStats(lineId, timePeriod, date) {
   return (dispatch) => {
     dispatch(getStats())
-    var api_url = '/api/stats/downtime/workers/time=' + timePeriod + '/line=' + lineId
-    if (date) {
-      api_url += '/' + date
-    }
-    return fetch(url + api_url, {
-      credentials: 'include'
-    })
+    return api.statsWorkers(lineId, timePeriod, date)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       var totalDowntime = 0
       for (var i = 0; i < data.length; i++) {
         totalDowntime += data[i].totalDowntime

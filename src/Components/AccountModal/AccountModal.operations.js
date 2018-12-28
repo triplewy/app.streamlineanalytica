@@ -3,18 +3,14 @@ import {
   logout, logoutFailure,
 } from './AccountModal.actions'
 import { sessionLoginSuccess } from '../../App/App.actions'
+import API from '../../api'
 
-const url = process.env.REACT_APP_API_URL
+const api = new API()
 
 export function fetchAccount() {
   return (dispatch) => {
     dispatch(getAccount())
-    return fetch(url + '/api/account', {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    })
+    return api.account()
     .then(res => res.json())
     .then(data => {
       dispatch(getAccountSuccess(data))
@@ -28,14 +24,7 @@ export function fetchAccount() {
 export function fetchLogout() {
   return (dispatch) => {
     dispatch(logout())
-    return fetch(url + '/api/auth/logout', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include'
-    })
+    return api.logout()
     .then(res => res.json())
     .then(data => {
       if (data.message === 'success') {

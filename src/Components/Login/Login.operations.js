@@ -1,24 +1,13 @@
 import { login, loginSuccess, loginFailure } from './Login.actions'
 import { sessionLoginSuccess } from '../../App/App.actions'
+import API from '../../api'
 
-const url = process.env.REACT_APP_API_URL
+const api = new API()
 
 export function fetchLogin(username, password) {
   return (dispatch) => {
-    console.log(url);
     dispatch(login())
-    return fetch(url + '/api/auth/signin', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify({
-        username: username,
-        password: password
-      })
-    })
+    return api.signIn({username: username, password: password})
     .then(res => {
       if (res.status === 401) {
         return {message: 'not logged in'}
@@ -53,27 +42,24 @@ export function fetchSignup(username, password, confirmPassword) {
       dispatch(loginFailure('Confirm password does not match password'))
     } else {
       dispatch(login())
-      return fetch(url + '/api/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({
-          username: username,
-          password: password
-        })
+      return api.signUp({username: username, password: password})
+      .then(res => {
+        if (res.status === 401) {
+          return {message: 'not logged in'}
+        } else {
+          return res.json()
+        }
       })
       .then(data => {
         if (data.message === 'success') {
           dispatch(loginSuccess())
+          dispatch(sessionLoginSuccess([], []))
         } else {
           dispatch(loginFailure(data.message))
         }
       })
       .catch(err => {
-        dispatch(loginFailure(err))
+        dispatch(loginFailure('Unable to signup at this time'))
       })
     }
   }

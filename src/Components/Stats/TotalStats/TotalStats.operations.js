@@ -1,16 +1,14 @@
 import { getStats, getStatsSuccess, getStatsFailure } from './TotalStats.actions'
+import API from '../../../api'
 
-const url = process.env.REACT_APP_API_URL
+const api = new API()
 
 export function fetchTotalStats(lineId, timePeriod) {
   return (dispatch) => {
     dispatch(getStats())
-    return fetch(url + '/api/stats/totalDowntime/' + timePeriod + '/' + lineId, {
-      credentials: 'include'
-    })
+    return api.totalDowntime(lineId, timePeriod)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       dispatch(getStatsSuccess(data.totalDowntime))
     })
     .catch((error) => {
