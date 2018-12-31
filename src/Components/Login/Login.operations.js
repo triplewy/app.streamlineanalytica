@@ -7,17 +7,13 @@ const api = new API()
 export function fetchLogin(username, password) {
   return (dispatch) => {
     dispatch(login())
-    return api.signIn({username: username, password: password})
-    .then(res => {
-      if (res.status === 401) {
-        return {message: 'not logged in'}
-      } else {
-        return res.json()
-      }
-    })
+    return api.adminSignIn({username: username, password: password})
+    .then(res => res.json())
     .then(data => {
-      if (data.message === 'not logged in') {
+      if (data.message === 'Incorrect credentials') {
         dispatch(loginFailure('Incorrect username or password'))
+      } else if (data.message === 'Not admin') {
+        dispatch(loginFailure('Insufficient privileges'))
       } else {
         for (var i = 0; i < data.lines.length; i++) {
           data.lines[i].name = 'LINE ' + data.lines[i].name

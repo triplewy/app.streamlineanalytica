@@ -1,6 +1,105 @@
 .Home {
   display: flex;
+  flex-direction: column;
   padding: 0 5%;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 80px;
+}
+
+.recap {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.recap>p {
+  margin: 30px 0;
+  font-size: 32px;
+}
+
+.recap>div {
+  display: flex;
+}
+
+.recap>div>div {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  margin: 0 20px;
+  margin-bottom: auto;
+  padding: 20px 20px;
+}
+
+.recap>div>div:first-child {
+  margin-left: 0;
+}
+
+.recap>div>div:last-child {
+  margin-right: 0;
+}
+
+.recap>div>div.lines {
+  width: 25%;
+}
+
+.recap>div>div.machines {
+  width: 35%;
+}
+
+.recap>div>div.reports {
+  width: 40%;
+}
+
+.recap>div>div>p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.recap>div>div>ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.recap>div>div>ul>li {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid #FF8300;
+}
+
+.recap>div>div>ul>li:last-child {
+  border: none;
+}
+
+.recap>div>div.lines li>p {
+  margin: auto 0;
+}
+
+.recap>div>div.lines li>div, .recap>div>div.machines li>div {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+
+.recap p.percentage {
+  color: #FF8300;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.recap p.downtime {
+  text-align: right;
+  margin-left: auto;
+}
+
+.recap>div>div.machines li>p {
+  margin: auto 0;
+}
+
+.recap>div>div.machines li>p.line {
+  color: gray;
+  font-size: 12px;
+  margin-right: 10px;
 }

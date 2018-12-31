@@ -39,6 +39,10 @@ export default class API {
     return fetch(`${url}/auth/signin`, postParams(body))
   }
 
+  adminSignIn(body) {
+    return fetch(`${url}/auth/signin/admin`, postParams(body))
+  }
+
   signUp(body) {
     return fetch(`${url}/auth/signup`, postParams(body))
   }
@@ -49,6 +53,14 @@ export default class API {
 
   sessionLogin() {
     return fetch(`${url}/sessionlogin`, getParams)
+  }
+
+  yesterday() {
+    return fetch(`${url}/home/recap/yesterday`, getParams)
+  }
+
+  week() {
+    return fetch(`${url}/home/recap/week`, getParams)
   }
 
   account() {

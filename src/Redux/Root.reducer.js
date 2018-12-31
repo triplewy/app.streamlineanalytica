@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import app from '../App/App.reducer'
+import home from '../Components/Home/Home.reducer'
 import login from '../Components/Login/Login.reducer'
 import tabNavigator from '../Components/TabNavigator/TabNavigator.reducer'
 import reports from '../Components/Reports/Reports.reducer'
@@ -14,6 +15,7 @@ import shiftStats from '../Components/Stats/ShiftStats/ShiftStats.reducer'
 
 export default combineReducers({
   app,
+  home,
   login,
   tabNavigator,
   reports,
