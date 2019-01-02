@@ -9,10 +9,10 @@ export function fetchYesterday() {
     return api.yesterday()
     .then(res => res.json())
     .then(data => {
-      if (data) {
-        dispatch(yesterdayRecapSuccess(data.lines, data.machines, data.reports))
-      } else {
+      if (data.message === 'not logged in') {
         dispatch(yesterdayRecapFailure('No data'))
+      } else {
+        dispatch(yesterdayRecapSuccess(data.lines, data.machines, data.reports))
       }
     })
     .catch(err => {
@@ -27,11 +27,10 @@ export function fetchWeek() {
     return api.week()
     .then(res => res.json())
     .then(data => {
-      console.log(data);
-      if (data) {
-        dispatch(weekRecapSuccess(data.lines, data.machines, data.reports))
-      } else {
+      if (data.message === 'not logged in') {
         dispatch(weekRecapFailure('No data'))
+      } else {
+        dispatch(weekRecapSuccess(data.lines, data.machines, data.reports))
       }
     })
     .catch(err => {

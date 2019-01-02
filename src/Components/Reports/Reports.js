@@ -16,8 +16,10 @@ class Reports extends Component {
   }
 
   componentDidMount() {
-    var machines = [{name: 'ALL MACHINES'}].concat(this.props.machines[this.props.lines[this.props.lineIndex].lineId])
-    this.props.getReports(this.props.lines[this.props.lineIndex].lineId, machines[this.props.machineIndex], this.props.date)
+    this.props.updatePage(0).then(() => {
+      const machines = [{name: 'ALL MACHINES'}].concat(this.props.machines[this.props.lines[this.props.lineIndex].lineId])
+      this.props.getReports(this.props.lines[this.props.lineIndex].lineId, machines[this.props.machineIndex], this.props.date)
+    })
   }
 
   componentDidUpdate(prevProps) {

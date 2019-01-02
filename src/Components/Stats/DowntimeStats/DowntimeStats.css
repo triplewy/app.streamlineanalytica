@@ -14,10 +14,17 @@
   color: gray;
 }
 
-.DowntimeStats>div.header>p:last-child {
+.DowntimeStats>div.header>div {
+  display: flex;
   margin-left: auto;
   margin-top: auto;
   font-size: 24px;
+  color: gray;
+}
+
+.DowntimeStats>div.header>div>p:last-child {
+  margin-left: 10px;
+  font-weight: bold;
   color: #99DDD6;
 }
 

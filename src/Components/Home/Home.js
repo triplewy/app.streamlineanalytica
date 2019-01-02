@@ -4,6 +4,7 @@ import { fetchYesterday, fetchWeek } from './Home.operations'
 import { Jumbotron } from 'react-bootstrap'
 import { downtimeString } from '../Utilities/DowntimeString'
 import ReportItem from '../Reports/ReportItem/ReportItem'
+import Loader from 'react-loader-spinner'
 import './Home.css';
 
 class Home extends Component {
@@ -22,36 +23,40 @@ class Home extends Component {
   }
 
   renderLines(lines) {
-    var renderedItems = lines.map((item, index) => {
-      return (
-        <li key={index}>
-          <p>{`LINE ${item.name}`}</p>
-          <div>
-            <p className='percentage'>{`${item.percentage.toFixed(2)}%`}</p>
-            <p className='downtime'>{downtimeString(item.totalDowntime)}</p>
-          </div>
-        </li>
-      )
-    })
+    if (lines.length) {
+      var renderedItems = lines.map((item, index) => {
+        return (
+          <li key={index}>
+            <p>{`LINE ${item.name}`}</p>
+            <div>
+              <p className='percentage'>{`${item.percentage.toFixed(2)}%`}</p>
+              <p className='downtime'>{downtimeString(item.totalDowntime)}</p>
+            </div>
+          </li>
+        )
+      })
 
-    return renderedItems
+      return renderedItems
+    }
   }
 
   renderMachines(machines) {
-    var renderedItems = machines.map((item, index) => {
-      return (
-        <li key={index}>
-          <p className='line'>{`LINE ${item.line}`}</p>
-          <p className='machine'>{item.name}</p>
-          <div>
-            <p className='percentage'>{`${item.percentage.toFixed(2)}%`}</p>
-            <p className='downtime'>{downtimeString(item.totalDowntime)}</p>
-          </div>
-        </li>
-      )
-    })
+    if (machines.length) {
+      var renderedItems = machines.map((item, index) => {
+        return (
+          <li key={index}>
+            <p className='line'>{`LINE ${item.line}`}</p>
+            <p className='machine'>{item.name}</p>
+            <div>
+              {/* <p className='percentage'>{`${item.percentage.toFixed(2)}%`}</p> */}
+              <p className='percentage'>{downtimeString(item.totalDowntime)}</p>
+            </div>
+          </li>
+        )
+      })
 
-    return renderedItems
+      return renderedItems
+    }
   }
 
   renderReports(reports) {
@@ -78,45 +83,56 @@ class Home extends Component {
             <div className='lines'>
               <p>Lines</p>
               <ul>
-
+                {this.renderLines(this.props.yesterdayLines)}
               </ul>
             </div>
             <div className='machines'>
               <p>Machines</p>
               <ul>
-
+                {this.renderMachines(this.props.yesterdayMachines)}
               </ul>
             </div>
             <div className='reports'>
               <p>Top downtime reports</p>
               <ul>
-
+                {this.renderReports(this.props.yesterdayReports)}
               </ul>
             </div>
           </div>
         </div>
         <div className='recap'>
           <p>Past Two Weeks' Recap</p>
-          <div>
-            <div className='lines'>
-              <p>Lines</p>
-              <ul>
-                {this.renderLines(this.props.weekLines)}
-              </ul>
+          {this.props.weekLoading ?
+            <div className='loaderWrapper'>
+              <Loader
+                type="Puff"
+                color="#FF8300"
+                height="75"
+                width="75"
+              />
             </div>
-            <div className='machines'>
-              <p>Machines</p>
-              <ul>
-                {this.renderMachines(this.props.weekMachines)}
-              </ul>
+            :
+            <div>
+              <div className='lines'>
+                <p>Lines</p>
+                <ul>
+                  {this.renderLines(this.props.weekLines)}
+                </ul>
+              </div>
+              <div className='machines'>
+                <p>Machines</p>
+                <ul>
+                  {this.renderMachines(this.props.weekMachines)}
+                </ul>
+              </div>
+              <div className='reports'>
+                <p>Top downtime reports</p>
+                <ul>
+                  {this.renderReports(this.props.weekReports)}
+                </ul>
+              </div>
             </div>
-            <div className='reports'>
-              <p>Top downtime reports</p>
-              <ul>
-                {this.renderReports(this.props.weekReports)}
-              </ul>
-            </div>
-          </div>
+          }
         </div>
       </div>
     )

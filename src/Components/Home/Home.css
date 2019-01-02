@@ -20,10 +20,13 @@
   display: flex;
 }
 
+.recap>div.loaderWrapper {
+  margin: 0 auto;
+}
+
 .recap>div>div {
   display: flex;
   flex-direction: column;
-  background-color: white;
   border-radius: 8px;
   margin: 0 20px;
   margin-bottom: auto;
@@ -39,14 +42,17 @@
 }
 
 .recap>div>div.lines {
+  background-color: white;
   width: 25%;
 }
 
 .recap>div>div.machines {
+  background-color: white;
   width: 35%;
 }
 
 .recap>div>div.reports {
+  background-color: white;
   width: 40%;
 }
 

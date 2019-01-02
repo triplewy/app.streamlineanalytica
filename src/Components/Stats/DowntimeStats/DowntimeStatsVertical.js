@@ -58,11 +58,14 @@ class DowntimeStatsVertical extends React.Component {
       <div className='DowntimeStats'>
         <div className='header'>
           <p>Downtime</p>
-          <p>{`Average: ${Math.round(this.props.average ? this.props.average * 100 : 0)}%`}</p>
+          <div>
+            <p>Average:</p>
+            <p>{`${(this.props.average ? this.props.average * 100 : 0).toFixed(2)}%`}</p>
+          </div>
         </div>
         <ul>
           {this.renderItems()}
-          {this.props.average ? <div className='averageLine' style={{bottom: 30 + this.props.average * 400}} /> : null}
+          {this.props.average ? <div className='averageLine' style={{bottom: 30 + this.props.average * 300}} /> : null}
         </ul>
         <DayStatsModal />
       </div>
