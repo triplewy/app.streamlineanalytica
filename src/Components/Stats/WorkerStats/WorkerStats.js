@@ -30,13 +30,13 @@ class WorkerStats extends React.Component {
     if (this.props.downtime.length > 0) {
       renderedItems = this.props.downtime.map((item, index) => {
         const downtime = item.totalDowntime
-        const height = downtime / this.props.totalDowntime * 400
+        const height = downtime / item.availableMin * 400
         return (
           <DowntimeItem
             key={index}
             downtime={downtime}
             height={height}
-            divisor={this.props.totalDowntime}
+            divisor={item.availableMin}
             label={item.name}
           />
         )
@@ -66,7 +66,6 @@ function mapStateToProps(state) {
     lineIndex: state.stats.lineIndex,
     lines: state.app.lines,
     downtime: state.workerStats.downtime,
-    totalDowntime: state.workerStats.totalDowntime,
   }
 }
 

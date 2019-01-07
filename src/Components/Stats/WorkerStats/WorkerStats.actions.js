@@ -8,11 +8,10 @@ export function getStats() {
   }
 }
 
-export function getStatsSuccess(downtime, totalDowntime) {
+export function getStatsSuccess(downtime) {
   return{
     type: GET_WORKER_STATS_SUCCESS,
     downtime: downtime,
-    totalDowntime: totalDowntime
   }
 }
 

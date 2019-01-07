@@ -1,5 +1,6 @@
 import React from 'react';
 import { downtimeString } from '../../Utilities/DowntimeString'
+import ImagesModal from './ImagesModal/ImagesModal'
 import './ReportItem.css'
 
 export default class ReportItem extends React.PureComponent {
@@ -7,29 +8,28 @@ export default class ReportItem extends React.PureComponent {
     super(props);
 
     this.state = {
-      // showModal: false,
-      // selectedImage: null,
+      showModal: false
     };
 
-    // this.renderItem = this.renderItem.bind(this)
-    // this.toggleModal = this.toggleModal.bind(this)
+    this.renderImages = this.renderImages.bind(this)
+    this.toggleModal = this.toggleModal.bind(this)
   }
 
-  // renderItem(item) {
-  //   const win = Dimensions.get('window');
-  //   return (
-  //     <TouchableOpacity onPress={() => this.setState({selectedImage: item.item.url, showModal: true})}>
-  //       <Image
-  //         source={{uri: item.item.url}}
-  //         style={{width: (win.width - 100) / 4, height: (win.width - 100) / 4, margin: 10, borderRadius: 8}}
-  //       />
-  //     </TouchableOpacity>
-  //   )
-  // }
-  //
-  // toggleModal() {
-  //   this.setState({showModal: !this.state.showModal})
-  // }
+  renderImages() {
+    if (this.props.images) {
+      return this.props.images.map((item, index) => {
+        return (
+          <li key={index}>
+            <img src={item.url} />
+          </li>
+        )
+      })
+    }
+  }
+
+  toggleModal() {
+    this.setState({showModal: !this.state.showModal})
+  }
 
   render() {
     const options = {timeZone: 'UTC', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric'}
@@ -46,7 +46,7 @@ export default class ReportItem extends React.PureComponent {
             </div>
           </div>
           <div>
-            <img src={this.props.icon_url} />
+            <img className='icon' src={this.props.icon_url} />
             <p>{this.props.machineName}</p>
           </div>
           <div>
@@ -58,17 +58,11 @@ export default class ReportItem extends React.PureComponent {
         </div>
         <div className='descriptionWrapper'>
           <p>{this.props.description}</p>
+          <ul className='images' onClick={this.toggleModal}>
+            {this.renderImages()}
+          </ul>
         </div>
-            {/* <FlatList
-              horizontal
-              scrollEnabled={false}
-              data={this.props.images}
-              renderItem={this.renderItem}
-              keyExtractor={(item, index) => index.toString()}
-              contentContainerStyle={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
-            />
-            <ImageModal selectedImage={this.state.selectedImage} showModal={this.state.showModal} toggleModal={this.toggleModal} />
-          </View> */}
+        <ImagesModal {...this.state} toggleModal={this.toggleModal} {...this.props} />
       </div>
     )
   }

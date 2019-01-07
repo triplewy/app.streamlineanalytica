@@ -6,7 +6,7 @@
   border-radius: 8px;
 }
 
-.ReportItem img {
+.ReportItem img.icon {
   width: 70px;
   height: 70px;
 }
@@ -17,9 +17,38 @@
 
 .ReportItem>div.descriptionWrapper {
   display: flex;
+  flex-direction: column;
   margin-top: 20px;
   border-top: 1px solid #ccc;
   padding: 20px 0;
+}
+
+.ReportItem>div.descriptionWrapper>ul.images {
+  display: flex;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-right: auto;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+}
+
+.ReportItem>div.descriptionWrapper>ul.images:hover {
+  box-shadow: 0 2px 2px 2px gray;
+}
+
+.ReportItem>div.descriptionWrapper>ul.images>li {
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.ReportItem>div.descriptionWrapper>ul.images>li:last-child {
+  margin-right: 0;
+}
+
+.ReportItem>div.descriptionWrapper>ul.images img {
+  border-radius: 8px;
+  height: 100px;
+  width: auto;
 }
 
 .ReportItem>div>div {

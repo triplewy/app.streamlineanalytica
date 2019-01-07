@@ -91,6 +91,7 @@ export default class API {
     return fetch(`${url}/stats/totaldowntime/line/${lineId}/timePeriod/${timePeriod}`, getParams)
   }
 
+
   statsLine(lineId, timePeriod) {
     return fetch(`${url}/stats/downtime/line/${lineId}/timePeriod/${timePeriod}`, getParams)
   }

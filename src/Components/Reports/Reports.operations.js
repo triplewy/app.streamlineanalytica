@@ -14,6 +14,7 @@ export function fetchReports(lineId, machine, date) {
     return api.reports(lineId, machine, date ? date.toISOString() : '', 0)
     .then(res => res.json())
     .then(data => {
+      console.log(data);
       dispatch(getReportsSuccess(data))
     })
     .catch(err => {

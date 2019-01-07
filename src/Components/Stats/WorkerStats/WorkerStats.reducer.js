@@ -3,7 +3,6 @@ import { GET_WORKER_STATS, GET_WORKER_STATS_SUCCESS, GET_WORKER_STATS_FAILURE } 
 const initialState = {
   loading: false,
   downtime: [],
-  totalDowntime: 0,
   error: ''
 }
 

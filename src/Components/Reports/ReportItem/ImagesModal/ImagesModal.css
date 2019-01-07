@@ -1,0 +1,13 @@
+#ImagesModal div.modal-dialog {
+  display: flex;
+  width: 500px;
+}
+
+.ImagesModal {
+  padding: 0;
+}
+
+.carousel-inner>.item>img {
+  width: 500px;
+  height: auto;
+}
