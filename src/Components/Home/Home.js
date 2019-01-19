@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchYesterday, fetchWeek } from './Home.operations'
 import { Jumbotron } from 'react-bootstrap'
+import { Redirect, withRouter } from 'react-router-dom'
 import { downtimeString } from '../Utilities/DowntimeString'
 import ReportItem from '../Reports/ReportItem/ReportItem'
 import Loader from 'react-loader-spinner'
@@ -18,8 +19,12 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.getYesterday()
-    this.props.getWeek()
+    if (this.props.location.state) {
+      this.props.history.push(this.props.location.state.from.pathname, { id: this.props.location.state.from.search })
+    } else {
+      this.props.getYesterday()
+      this.props.getWeek()
+    }  
   }
 
   renderLines(lines) {
@@ -152,4 +157,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Home));

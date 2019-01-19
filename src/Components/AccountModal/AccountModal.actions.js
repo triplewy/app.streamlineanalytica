@@ -25,7 +25,7 @@ export function getAccountFailure(error) {
   }
 }
 
-export function logout() {
+export function handleLogout() {
   return {
     type: LOGOUT
   }

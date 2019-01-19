@@ -1,12 +1,10 @@
 import { getStats, getStatsSuccess, getStatsFailure } from './DowntimeStats.actions'
-import API from '../../../api'
-
-const api = new API()
+import { statsLine } from '../../../api'
 
 export function fetchDowntimeStats(lineId, timePeriod) {
   return (dispatch) => {
     dispatch(getStats())
-    return api.statsLine(lineId, timePeriod)
+    return statsLine(lineId, timePeriod)
     .then(res => res.json())
     .then(data => {
       var downtime = []

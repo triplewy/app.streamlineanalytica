@@ -4,14 +4,12 @@ import {
   setLineIndex, setMachineIndex
 } from './Reports.actions'
 
-import API from '../../api'
-
-const api = new API()
+import { reports } from '../../api'
 
 export function fetchReports(lineId, machine, date) {
   return (dispatch) => {
-    dispatch(getReports)
-    return api.reports(lineId, machine, date ? date.toISOString() : '', 0)
+    dispatch(getReports())
+    return reports(lineId, machine, date ? date.toISOString() : '', 0)
     .then(res => res.json())
     .then(data => {
       console.log(data);
@@ -25,8 +23,8 @@ export function fetchReports(lineId, machine, date) {
 
 export function fetchUpdateReports(lineId, machine, date, page) {
   return (dispatch) => {
-    dispatch(updateReports)
-    return api.reports(lineId, machine, date ? date.toISOString() : '', page)
+    dispatch(updateReports())
+    return reports(lineId, machine, date ? date.toISOString() : '', page)
     .then(res => res.json())
     .then(data => {
       dispatch(updateReportsSuccess(data))

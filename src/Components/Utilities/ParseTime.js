@@ -20,3 +20,16 @@ export function parseTime(timePeriod, time) {
       return new Date(time).toLocaleDateString('en-US', options)
   }
 }
+
+export function timePassed(time) {
+  const timePassed = (Date.now() - time) / 1000
+  if (timePassed < 60) {
+    return `${Math.round(timePassed)} sec ago`
+  } else  if (timePassed < (60 * 60)) {
+    return `${Math.round(timePassed / 60)} min ago`
+  } else if (timePassed < (60 * 60 * 24)) {
+    return `${Math.round(timePassed / (60 * 60))} hour ago`
+  } else {
+    return `${Math.round(timePassed / (60 * 60 * 24))} days ago`
+  }
+}

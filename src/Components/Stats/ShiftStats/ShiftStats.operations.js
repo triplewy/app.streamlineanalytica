@@ -1,13 +1,10 @@
 import { getStats, getStatsSuccess, getStatsFailure } from './ShiftStats.actions'
-import API from '../../../api'
-
-const api = new API()
-const url = process.env.REACT_APP_API_URL
+import { statsShifts } from '../../../api'
 
 export function fetchShiftStats(lineId, timePeriod, date) {
   return (dispatch) => {
     dispatch(getStats())
-    return api.statsShifts(lineId, timePeriod, date)
+    return statsShifts(lineId, timePeriod, date)
     .then(res => res.json())
     .then(data => {
       var totalDowntime = 0

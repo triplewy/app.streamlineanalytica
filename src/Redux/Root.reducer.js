@@ -12,6 +12,8 @@ import totalStats from '../Components/Stats/TotalStats/TotalStats.reducer'
 import accountModal from '../Components/AccountModal/AccountModal.reducer'
 import dayStatsModal from '../Components/Stats/DayStatsModal/DayStatsModal.reducer'
 import shiftStats from '../Components/Stats/ShiftStats/ShiftStats.reducer'
+import approve from '../Components/Approve/Approve.reducer'
+import workOrders from '../Components/WorkOrders/WorkOrders.reducer'
 
 export default combineReducers({
   app,
@@ -26,5 +28,7 @@ export default combineReducers({
   accountModal,
   totalStats,
   dayStatsModal,
-  shiftStats
+  shiftStats,
+  approve,
+  workOrders
 });

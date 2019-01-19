@@ -1,16 +1,14 @@
 import {
   getAccount, getAccountSuccess, getAccountFailure,
-  logout, logoutFailure,
+  handleLogout, logoutFailure,
 } from './AccountModal.actions'
 import { sessionLoginSuccess } from '../../App/App.actions'
-import API from '../../api'
-
-const api = new API()
+import { account, logout } from '../../api'
 
 export function fetchAccount() {
   return (dispatch) => {
     dispatch(getAccount())
-    return api.account()
+    return account()
     .then(res => res.json())
     .then(data => {
       dispatch(getAccountSuccess(data))
@@ -23,8 +21,8 @@ export function fetchAccount() {
 
 export function fetchLogout() {
   return (dispatch) => {
-    dispatch(logout())
-    return api.logout()
+    dispatch(handleLogout())
+    return logout()
     .then(res => res.json())
     .then(data => {
       if (data.message === 'success') {

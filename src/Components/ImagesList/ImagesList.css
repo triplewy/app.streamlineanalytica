@@ -1,0 +1,27 @@
+ul.images {
+  display: flex;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-right: auto;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+}
+
+ul.images:hover {
+  box-shadow: 0 2px 2px 2px gray;
+}
+
+ul.images>li {
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+ul.images>li:last-child {
+  margin-right: 0;
+}
+
+ul.images img {
+  border-radius: 8px;
+  height: 100px;
+  width: auto;
+}

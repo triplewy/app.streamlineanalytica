@@ -1,0 +1,62 @@
+.WorkOrders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.WorkOrders>p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.WorkOrders>ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.WorkOrders>ul>li {
+  display: flex;
+  margin: 20px 0;
+  padding: 20px;
+  min-width: 720px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.WorkOrders>ul>li:first-child {
+  margin-top: 0;
+}
+
+.WorkOrders>ul>li>div {
+  display: flex;
+  flex-direction: column;
+}
+
+.WorkOrders>ul>li>div:first-child {
+  flex: 1;
+}
+
+.WorkOrders>ul>li button {
+  display: flex;
+  margin-top: 10px;
+  margin-left: auto;
+  background-color: #FF8300;
+  color: white;
+  padding: 6px 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+.WorkOrders p.line {
+  color: gray;
+  font-size: 16px;
+}
+
+.WorkOrders p.machine {
+  font-size: 16px;
+  margin-bottom: 10px;
+}

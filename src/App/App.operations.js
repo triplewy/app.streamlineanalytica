@@ -1,12 +1,10 @@
 import { sessionLogin, sessionLoginSuccess, sessionLoginFailure } from './App.actions'
-import API from '../api'
-
-const api = new API()
+import { handleSessionLogin } from '../api'
 
 export function fetchSessionLogin() {
   return (dispatch) => {
     dispatch(sessionLogin())
-    return api.sessionLogin()
+    return handleSessionLogin()
     .then(res => res.json())
     .then(data => {
       if (data.message === 'not logged in') {

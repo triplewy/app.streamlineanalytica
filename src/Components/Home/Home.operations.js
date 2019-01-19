@@ -1,12 +1,10 @@
 import { yesterdayRecap, yesterdayRecapSuccess, yesterdayRecapFailure, weekRecap, weekRecapSuccess, weekRecapFailure } from './Home.actions'
-import API from '../../api'
-
-const api = new API()
+import { yesterday, week } from '../../api'
 
 export function fetchYesterday() {
   return (dispatch) => {
     dispatch(yesterdayRecap())
-    return api.yesterday()
+    return yesterday()
     .then(res => res.json())
     .then(data => {
       if (data.message === 'not logged in') {
@@ -24,7 +22,7 @@ export function fetchYesterday() {
 export function fetchWeek() {
   return (dispatch) => {
     dispatch(weekRecap())
-    return api.week()
+    return week()
     .then(res => res.json())
     .then(data => {
       if (data.message === 'not logged in') {

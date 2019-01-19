@@ -1,12 +1,10 @@
 import { getStats, getStatsSuccess, getStatsFailure } from './WorkerStats.actions'
-import API from '../../../api'
-
-const api = new API()
+import { statsWorkers } from '../../../api'
 
 export function fetchWorkerStats(lineId, timePeriod, date) {
   return (dispatch) => {
     dispatch(getStats())
-    return api.statsWorkers(lineId, timePeriod, date)
+    return statsWorkers(lineId, timePeriod, date)
     .then(res => res.json())
     .then(data => {
       dispatch(getStatsSuccess(data))

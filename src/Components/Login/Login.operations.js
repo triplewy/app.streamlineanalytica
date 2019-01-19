@@ -1,13 +1,11 @@
 import { login, loginSuccess, loginFailure } from './Login.actions'
 import { sessionLoginSuccess } from '../../App/App.actions'
-import API from '../../api'
-
-const api = new API()
+import { adminSignIn, signUp } from '../../api'
 
 export function fetchLogin(username, password) {
   return (dispatch) => {
     dispatch(login())
-    return api.adminSignIn({username: username, password: password})
+    return adminSignIn({username: username, password: password})
     .then(res => res.json())
     .then(data => {
       if (data.message === 'Incorrect credentials') {
@@ -38,7 +36,7 @@ export function fetchSignup(username, password, confirmPassword) {
       dispatch(loginFailure('Confirm password does not match password'))
     } else {
       dispatch(login())
-      return api.signUp({username: username, password: password})
+      return signUp({username: username, password: password})
       .then(res => {
         if (res.status === 401) {
           return {message: 'not logged in'}

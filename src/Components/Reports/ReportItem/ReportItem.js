@@ -1,34 +1,12 @@
 import React from 'react';
 import { downtimeString } from '../../Utilities/DowntimeString'
-import ImagesModal from './ImagesModal/ImagesModal'
+import ImagesList from '../../ImagesList/ImagesList'
 import './ReportItem.css'
 
 export default class ReportItem extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      showModal: false
-    };
-
-    this.renderImages = this.renderImages.bind(this)
-    this.toggleModal = this.toggleModal.bind(this)
-  }
-
-  renderImages() {
-    if (this.props.images) {
-      return this.props.images.map((item, index) => {
-        return (
-          <li key={index}>
-            <img src={item.url} />
-          </li>
-        )
-      })
-    }
-  }
-
-  toggleModal() {
-    this.setState({showModal: !this.state.showModal})
   }
 
   render() {
@@ -58,11 +36,8 @@ export default class ReportItem extends React.PureComponent {
         </div>
         <div className='descriptionWrapper'>
           <p>{this.props.description}</p>
-          <ul className='images' onClick={this.toggleModal}>
-            {this.renderImages()}
-          </ul>
+          <ImagesList images={this.props.images} />
         </div>
-        <ImagesModal {...this.state} toggleModal={this.toggleModal} {...this.props} />
       </div>
     )
   }

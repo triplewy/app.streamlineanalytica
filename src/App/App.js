@@ -9,6 +9,8 @@ import TabNavigator from '../Components/TabNavigator/TabNavigator'
 import Reports from '../Components/Reports/Reports'
 import Stats from '../Components/Stats/Stats'
 import Splash from '../Components/Splash/Splash'
+import Approve from '../Components/Approve/Approve'
+import WorkOrders from '../Components/WorkOrders/WorkOrders'
 import './App.css';
 
 class App extends Component {
@@ -18,9 +20,17 @@ class App extends Component {
   }
 
   render() {
-    const PrivateRoute = ({component: Component, ...rest}) => (
-      <Route {...rest} render={(props) => (this.props.loggedIn && this.props.lines.length > 0 ? <Component {...props}/> : <Redirect to={{pathname: '/', state: {from: props.location}}} /> )} />
-    )
+    const PrivateRoute = ({component: Component, ...rest}) => {
+      console.log();
+      return (
+        <Route {...rest} render={(props) => (this.props.loggedIn && this.props.lines.length > 0 ?
+          <Component {...props}/>
+          :
+          <Redirect to={{pathname: '/', state: { from: props.location }}} /> )}
+        />
+      )
+
+    }
     return (
       <BrowserRouter>
         <div>
@@ -36,6 +46,8 @@ class App extends Component {
             <Route exact path='/' component={this.props.loggedIn ? (this.props.lines.length > 0 ? Home : Splash) : Login} />
             <PrivateRoute exact path='/reports' component={Reports} />
             <PrivateRoute exact path='/stats' component={Stats} />
+            <PrivateRoute exact path='/approve' component={Approve} />
+            <PrivateRoute exact path='/workorders' component={WorkOrders} />
           </Switch>
         </div>
       </BrowserRouter>

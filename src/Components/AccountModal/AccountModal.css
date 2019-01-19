@@ -1,3 +1,17 @@
+.accountModalBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.accountModalBody>* {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.accountModalBody>*:last-child {
+  margin-bottom: 0;
+}
+
 .logout {
   cursor: pointer;
   color: red;
