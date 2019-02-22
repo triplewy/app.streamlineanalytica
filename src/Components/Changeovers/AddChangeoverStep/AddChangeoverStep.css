@@ -1,0 +1,57 @@
+.AddChangeoverStep {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 20px 0;
+  padding-top: 20px;
+}
+
+.AddChangeoverStep>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.AddChangeoverStep button.addStep {
+  padding: 12px;
+  background-color: #FF8300;
+  color: white;
+  font-weight: 500;
+}
+
+.AddChangeoverStep label.addImage {
+  background-color: #ccc;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.AddChangeoverStep label.addImage img {
+  height: 50px;
+  width: 50px;
+}
+
+.AddChangeoverStep textarea {
+  margin: 20px;
+}
+
+.AddChangeoverStep div.imageWrapper {
+  position: relative;
+}
+
+.AddChangeoverStep img.deleteImage {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 50px;
+  height: 50px;
+}
+
+.AddChangeoverStep img.inputImage {
+  margin: 0 auto;
+  width: 360px;
+  height: auto;
+  border-radius: 8px;
+}

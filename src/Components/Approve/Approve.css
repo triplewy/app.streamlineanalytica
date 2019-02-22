@@ -10,3 +10,9 @@
   margin-top: 120px;
   font-size: 18px;
 }
+
+.approveResponse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

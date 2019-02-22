@@ -11,6 +11,9 @@ import Stats from '../Components/Stats/Stats'
 import Splash from '../Components/Splash/Splash'
 import Approve from '../Components/Approve/Approve'
 import WorkOrders from '../Components/WorkOrders/WorkOrders'
+import Changeovers from '../Components/Changeovers/Changeovers'
+import AddChangeover from '../Components/Changeovers/AddChangeover/AddChangeover'
+import EditChangeover from '../Components/Changeovers/EditChangeover/EditChangeover'
 import './App.css';
 
 class App extends Component {
@@ -48,6 +51,9 @@ class App extends Component {
             <PrivateRoute exact path='/stats' component={Stats} />
             <PrivateRoute exact path='/approve' component={Approve} />
             <PrivateRoute exact path='/workorders' component={WorkOrders} />
+            <PrivateRoute exact path='/changeovers' component={Changeovers} />
+            <PrivateRoute exact path='/changeovers/add' component={AddChangeover} />
+            <Route exact path='/changeovers/edit' render={(props) => (props.location.state.fromChangeovers ? <EditChangeover {...props} /> : <Redirect to='/changeovers' /> )} />
           </Switch>
         </div>
       </BrowserRouter>

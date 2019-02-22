@@ -14,6 +14,9 @@ import dayStatsModal from '../Components/Stats/DayStatsModal/DayStatsModal.reduc
 import shiftStats from '../Components/Stats/ShiftStats/ShiftStats.reducer'
 import approve from '../Components/Approve/Approve.reducer'
 import workOrders from '../Components/WorkOrders/WorkOrders.reducer'
+import addChangeover from '../Components/Changeovers/AddChangeover/AddChangeover.reducer'
+import changeovers from '../Components/Changeovers/Changeovers.reducer'
+import editChangeovers from '../Components/Changeovers/EditChangeover/EditChangeover.reducer'
 
 export default combineReducers({
   app,
@@ -30,5 +33,8 @@ export default combineReducers({
   dayStatsModal,
   shiftStats,
   approve,
-  workOrders
+  workOrders,
+  addChangeover,
+  changeovers,
+  editChangeovers
 });

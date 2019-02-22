@@ -23,14 +23,14 @@ class Approve extends Component {
   renderReponse() {
     if (this.props.success) {
       return (
-        <div>
+        <div className='approveResponse'>
           <p>Work order approved</p>
-          <button>Continue to work orders</button>
+          <Link to='/workorders'>Continue to work orders</Link>
         </div>
       )
     } else {
       return (
-        <div>
+        <div className='approveResponse'>
           <p>Work order failed to approve</p>
         </div>
       )

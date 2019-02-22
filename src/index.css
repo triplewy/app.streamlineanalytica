@@ -78,6 +78,53 @@ hr {
   padding: 0;
 }
 
+input {
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-weight: 300;
+  -webkit-appearance: none;
+  -webkit-transition: box-shadow 0.5s, color 0.5s;
+  transition: box-shadow 0.5s, color 0.5s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #337ab7;
+}
+
+
+input[type="file"] {
+  display: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0 0;
+  margin: 0 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+button:focus {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  transition: border 0.5s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #FF8300;
+}
+
 .jumbotron {
   margin: 0;
 }

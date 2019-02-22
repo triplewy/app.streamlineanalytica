@@ -28,6 +28,7 @@ class AccountModal extends Component {
             <div className='accountModalBody'>
               <div className='logout' onClick={this.props.logout}>Logout</div>
               <Link to='/workorders' onClick={() => this.setState({ showModal: !this.state.showModal })}>Work Orders</Link>
+              <Link to='/changeovers' onClick={() => this.setState({ showModal: !this.state.showModal })}>Changeovers</Link>
             </div>
           </Modal.Body>
         </Modal>

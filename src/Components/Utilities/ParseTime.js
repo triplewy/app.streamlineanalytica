@@ -22,7 +22,7 @@ export function parseTime(timePeriod, time) {
 }
 
 export function timePassed(time) {
-  const timePassed = (Date.now() - time) / 1000
+  const timePassed = (Date.now() - time - 1000*60*60*5) / 1000
   if (timePassed < 60) {
     return `${Math.round(timePassed)} sec ago`
   } else  if (timePassed < (60 * 60)) {

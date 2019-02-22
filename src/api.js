@@ -93,6 +93,22 @@ export function fetchFinishWorkOrder(body) {
   return fetch(`${url}/workorder`, putParams(body))
 }
 
+export function fetchChangeovers() {
+  return fetch(`${url}/changeover`, getParams)
+}
+
+export function fetchChangeoverSteps(changeoverId) {
+  return fetch(`${url}/changeover/${changeoverId}`, getParams)
+}
+
+export function fetchCreateChangeover(body) {
+  return fetch(`${url}/changeover`, postParams(body))
+}
+
+export function fetchCreateChangeoverStep(body) {
+  return fetch(`${url}/changeover/step`, postParamsFormdata(body))
+}
+
 export function reports(lineId, machine, date, page) {
   if (machine.machineId) {
     if (date) {
